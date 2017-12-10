@@ -1,0 +1,11 @@
+{
+    "log": {
+        "level": "log"
+    },
+    "error": {
+        "debug": true
+    },
+    "server": {
+        "port": 8085
+    }
+}

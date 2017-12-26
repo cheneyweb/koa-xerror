@@ -27,4 +27,4 @@ router.get('/test', function (ctx, next) {
 // 启动应用服务
 app.listen(port)
 log.info(`XError服务启动【执行环境:${process.env.NODE_ENV},端口:${port}】`)
-log.info(`GET日志路径 【GET】【localhost:${port}/test`)
+log.info(`GET日志路径 【GET】【localhost:${port}/test】`)

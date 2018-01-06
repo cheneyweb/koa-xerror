@@ -10,9 +10,9 @@ module.exports = function (errorConfig = {}, errorProcess) {
             if (errorProcess && typeof (errorProcess) == 'function') {
                 errorProcess(ctx, err)
             }
-            ctx.status = err.statusCode || err.status || 500
             let res = err
             if(err.message){
+                ctx.status = err.statusCode || err.status || 500
                 res = { err: err.message }
             }
             if (errorConfig.debug != false) {

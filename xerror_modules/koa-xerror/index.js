@@ -11,7 +11,10 @@ module.exports = function (errorConfig = {}, errorProcess) {
                 errorProcess(ctx, err)
             }
             ctx.status = err.statusCode || err.status || 500
-            const res = { err: err.message }
+            let res = err
+            if(err.message){
+                res = { err: err.message }
+            }
             if (errorConfig.debug != false) {
                 res.stack = err.stack
             }

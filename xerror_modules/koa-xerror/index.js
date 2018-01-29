@@ -11,13 +11,18 @@ module.exports = function (errorConfig = {}, errorProcess) {
                 errorProcess(ctx, err)
             }
             let res = err
-            if(err.message){
-                ctx.status = err.statusCode || err.status || 500
+            // 系统错误处理
+            if (err.message) {
+                ctx.status = err.statusCode || err.status || errorConfig.errStatus || 500
                 res = { err: err.message }
+            } else if (errorConfig.errStatus) {
+                ctx.status = errorConfig.errStatus
             }
+            // 是否打印错误栈
             if (errorConfig.debug != false) {
                 res.stack = err.stack
             }
+            // 错误信息返回
             ctx.body = res
         }
     }

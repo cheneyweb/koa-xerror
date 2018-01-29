@@ -3,9 +3,10 @@
         "level": "warn"
     },
     "error": {
-        "debug": false
+        "debug": false,
+        "errStatus": 500
     },
     "server": {
-        "port": 8085
+        "port": 3636
     }
 }

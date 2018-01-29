@@ -24,6 +24,12 @@ router.get('/test', function (ctx, next) {
     ctx.body = 'hello'
 })
 
+// 模拟错误
+router.get('/throw', function (ctx, next) {
+    throw '抛出异常'
+    ctx.body = 'hello'
+})
+
 // 启动应用服务
 app.listen(port)
 log.info(`XError服务启动【执行环境:${process.env.NODE_ENV},端口:${port}】`)

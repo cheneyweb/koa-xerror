@@ -1,6 +1,6 @@
 {
   "name": "koa-xerror",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Koa路由中间件，全局错误捕获",
   "main": "index.js",
   "scripts": {

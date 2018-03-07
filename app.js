@@ -13,7 +13,10 @@ const router = new Router()
 
 // 初始化应用服务
 const app = new Koa()
-app.use(xerror(config.error, (ctx, err) => { log.info('额外可选错误处理') }))
+app.use(xerror(config.error, (ctx, err) => {
+    ctx.body.code = -1
+    log.info('额外可选错误处理')
+}))
 app.use(koaBody())
 app.use(router.routes())
 

@@ -7,9 +7,6 @@ module.exports = function (errorConfig = {}, errorProcess) {
             await next()
         } catch (err) {
             log.error(err)
-            if (errorProcess && typeof (errorProcess) == 'function') {
-                errorProcess(ctx, err)
-            }
             let res = err
             // 系统错误处理
             if (err.message) {
@@ -24,6 +21,10 @@ module.exports = function (errorConfig = {}, errorProcess) {
             }
             // 错误信息返回
             ctx.body = res
+            // 额外可选错误处理
+            if (errorProcess && typeof (errorProcess) == 'function') {
+                errorProcess(ctx, err)
+            }
         }
     }
 }
